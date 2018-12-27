@@ -18,6 +18,11 @@ class CanvasAwareInputProcessor {
     }
 }
 
+class AllAwareProcessor {
+    process(keys, canvas, processors, actors) {
+    }
+}
+
 class Drawer {
     /**
      * @param canvas
@@ -142,8 +147,16 @@ class BaseScene {
             return wrap(handler.draw(this.getCanvas(), actors))
         } else if (handler instanceof Processor) {
             return wrap(handler.process(actors));
+        } else if (handler instanceof AllAwareProcessor) {
+            return handler.process(this.getKeys(), this.getCanvas(), processors, actors)
         } else {
             throw "No handler found for this shiet, burrp Morty.";
         }
+    }
+}
+
+class SceneTransformer {
+    process(actors, processors) {
+
     }
 }

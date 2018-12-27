@@ -1,4 +1,4 @@
-function getRelativePath2D(x,y,pathString){
+function getRelativePath2D(x, y, pathString) {
     return new Path2D(`m ${x},${y}` + pathString)
 }
 
@@ -9,20 +9,20 @@ class SpaceShipDrawer extends Drawer {
             .forEach(
                 ship => {
                     var context = canvas.getContext('2d');
-                    context.save()
-                    ship.setupContext(context)
-                    if ((ship.invul > 0) & (Ticker.i%20 > 10)){
-                            context.strokeStyle = ship.style.colorSfx;
+                    context.save();
+                    ship.setupContext(context);
+                    if ((ship.invul > 0) & (Ticker.i % 20 > 10)) {
+                        context.strokeStyle = ship.style.colorSfx;
                     }
-                    context.translate(ship.x, ship.y)
-                    context.rotate(-ship.rotate)
+                    context.translate(ship.x, ship.y);
+                    context.rotate(-ship.rotate);
                     context.beginPath();
                     context.stroke(
                         new Path2D(ship.shapePathString)
-                        )
-                    
+                    );
+
                     context.restore()
-                    
+
                     /*
                     context.moveTo(ship.x + ship.radius * Math.sin(ship.rotate), ship.y + ship.radius * Math.cos(ship.rotate));
                     context.lineTo(ship.x + ship.radius * Math.sin(ship.rotate + 2.0 / 3.0 * Math.PI), ship.y + ship.radius * Math.cos(ship.rotate + 2.0 / 3.0 * Math.PI));
@@ -51,8 +51,8 @@ class BulletDrawer extends Drawer {
                     context.beginPath();
                     context.stroke(
                         new Path2D(bullet.shapePathString)
-                        )
-                    
+                    )
+
                     context.restore()
                 }
             );
@@ -150,13 +150,33 @@ class SieNieZesrajDrawer extends Drawer {
             if (Score.getScore() > 100000) {
                 ctx.fillText("Tylko Się Nię Zesraj", beginX, beginY);
                 ctx.font = "20px Arial";
-                ctx.fillText("By pominąć uwagę naciśnij f.", beginX, beginY*3/2);
-            }else{
+                ctx.fillText("By pominąć uwagę naciśnij f.", beginX, beginY * 3 / 2);
+            } else {
                 ctx.fillText("Co Za Przegryw", beginX, beginY);
                 ctx.font = "20px Arial";
-                ctx.fillText("Press f by być przegrywem dalej.", beginX, beginY*3/2);
+                ctx.fillText("Press f by być przegrywem dalej.", beginX, beginY * 3 / 2);
             }
         }
+
+        return actors;
+    }
+}
+
+class InitialScreenDrawer extends Drawer {
+
+    draw(canvas, actors) {
+        var beginX = canvas.width / 2;
+        var beginY = canvas.height / 2;
+
+        var ctx = canvas.getContext("2d")
+
+        ctx.fillStyle = "white";
+        ctx.textAlign = "center";
+        ctx.font = "40px Arial";
+
+        ctx.fillText("WSAD + J", beginX, beginY / 2);
+        ctx.fillText("Debris.js", beginX, beginY);
+        ctx.fillText("F to play", beginX, beginY * 3 / 2);
 
         return actors;
     }
