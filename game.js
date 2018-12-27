@@ -50,10 +50,11 @@ class Scene extends BaseScene {
 
 function init() {
     scene = new Scene();
-    setInterval(
-        () => setTimeout(() => scene.refresh(), 0)
-        , 1000.0 / 60.0
-    );
+    refr = () => {
+        scene.refresh();
+        requestAnimationFrame(refr);
+    };
+    refr();
     document.addEventListener("keydown", (x) => scene.keydown(x.key));
     document.addEventListener("keyup", (x) => scene.keyup(x.key));
 
