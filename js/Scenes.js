@@ -25,7 +25,7 @@ Scenes.playingScene = [
     new TtlProcessor(),
 
     new ReloadProcessor(),
-    new InvulDecreaser(),
+    new InvulDecreaserProcessor(),
 
     new AgainController(),
     new SpaceShipController()
