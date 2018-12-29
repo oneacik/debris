@@ -47,12 +47,12 @@ class MainScene extends BaseScene {
     static init() {
         MainScene.scene = new MainScene();
         var refr = () => {
-            scene.refresh();
+            MainScene.scene.refresh();
             requestAnimationFrame(refr);
         };
         refr();
-        document.addEventListener("keydown", (x) => scene.keydown(x.key));
-        document.addEventListener("keyup", (x) => scene.keyup(x.key));
+        document.addEventListener("keydown", (x) => MainScene.scene.keydown(x.key));
+        document.addEventListener("keyup", (x) => MainScene.scene.keyup(x.key));
     }
 
 }
