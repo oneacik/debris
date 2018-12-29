@@ -1,4 +1,4 @@
-class Scene extends BaseScene {
+class MainScene extends BaseScene {
     constructor() {
         super();
         this.keys = new Set();
@@ -8,8 +8,6 @@ class Scene extends BaseScene {
             new InitialScreenDrawer(),
             new InitialScreenStart()
         ]
-
-
     }
 
     refresh() {
@@ -45,18 +43,16 @@ class Scene extends BaseScene {
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.fillRect(0, 0, canvas.width, canvas.height);
     }
-}
 
-
-function init() {
-    scene = new Scene();
-    refr = () => {
-        scene.refresh();
-        requestAnimationFrame(refr);
-    };
-    refr();
-    document.addEventListener("keydown", (x) => scene.keydown(x.key));
-    document.addEventListener("keyup", (x) => scene.keyup(x.key));
-
+    static init() {
+        MainScene.scene = new MainScene();
+        var refr = () => {
+            scene.refresh();
+            requestAnimationFrame(refr);
+        };
+        refr();
+        document.addEventListener("keydown", (x) => scene.keydown(x.key));
+        document.addEventListener("keyup", (x) => scene.keyup(x.key));
+    }
 
 }

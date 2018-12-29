@@ -129,7 +129,7 @@ class ScoreDrawer extends Drawer {
         var beginY = canvas.height - 20;
 
         var ctx = canvas.getContext("2d");
-        ctx.fillStyle = "white"
+        ctx.fillStyle = "white";
         ctx.textAlign = "right";
         ctx.font = "10px Arial";
         ctx.fillText("Score: " + Score.getScore(), beginX, beginY);

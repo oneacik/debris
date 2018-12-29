@@ -9,21 +9,46 @@
             margin-right: auto
         }
     </style>
-    <script src="Ticker.js" type="text/javascript"></script>
-    <script src="Base.js" type="text/javascript"></script>
+    <script src="js/Ticker.js" type="text/javascript"></script>
 
-    <script src="SceneTransformers.js" type="text/javascript"></script>
-    <script src="Actors.js" type="text/javascript"></script>
-    <script src="ObjectDrawers.js" type="text/javascript"></script>
-    <script src="HitProcessors.js" type="text/javascript"></script>
-    <script src="Processors.js" type="text/javascript"></script>
-    <script src="MeteorSplitProcessors.js" type="text/javascript"></script>
-    <script src="InputProcessors.js" type="text/javascript"></script>
+    <!--Base.js-->
+    <script src="js/base/AllAwareProcessor.js" type="text/javascript"></script>
+    <script src="js/base/Actor.js" type="text/javascript"></script>
+    <script src="js/base/BaseScene.js" type="text/javascript"></script>
+    <script src="js/base/CanvasAwareInputProcessor.js" type="text/javascript"></script>
+    <script src="js/base/CanvasAwareProcessor.js" type="text/javascript"></script>
+    <script src="js/base/Drawer.js" type="text/javascript"></script>
+    <script src="js/base/HitProcessor.js" type="text/javascript"></script>
+    <script src="js/base/InputProcessor.js" type="text/javascript"></script>
+    <script src="js/base/Processor.js" type="text/javascript"></script>
+    <script src="js/base/SceneTransformer.js" type="text/javascript"></script>
 
-    <script src="Scenes.js" type="text/javascript"></script>
-    <script src="game.js" type="text/javascript"></script>
+    <!--Actors.js-->
+    <script src="js/actors/SpaceShip.js" type="text/javascript"></script>
+    <script src="js/actors/Score.js" type="text/javascript"></script>
+
+    <script src="js/actors/Bullet.js" type="text/javascript"></script>
+    <script src="js/actors/SlowBullet.js" type="text/javascript"></script>
+
+    <script src="js/actors/Meteor.js" type="text/javascript"></script>
+    <script src="js/actors/ExplodingMeteor.js" type="text/javascript"></script>
+    <script src="js/actors/HealingMeteor.js" type="text/javascript"></script>
+    <script src="js/actors/SelfBombingMeteor.js" type="text/javascript"></script>
+
+
+
+    <script src="js/SceneTransformers.js" type="text/javascript"></script>
+
+    <script src="js/ObjectDrawers.js" type="text/javascript"></script>
+    <script src="js/HitProcessors.js" type="text/javascript"></script>
+    <script src="js/Processors.js" type="text/javascript"></script>
+    <script src="js/MeteorSplitProcessors.js" type="text/javascript"></script>
+    <script src="js/InputProcessors.js" type="text/javascript"></script>
+
+    <script src="js/Scenes.js" type="text/javascript"></script>
+    <script src="js/MainScene.js" type="text/javascript"></script>
 </head>
-<body onload="init();">
+<body onload="MainScene.init();">
 <canvas id="scene" width="500px" height="500px"></canvas>
 </body>
 </html>
